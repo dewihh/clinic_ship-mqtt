@@ -73,11 +73,12 @@
                                             <table class="table table-striped table-bordered" id="table-1">
                                                 <thead>
                                                     <tr>
-                                                        <th class="text-center">#</th>
+                                                        <th class="text-center">No</th>
                                                         <th>Nama Pasien</th>
                                                         <th>Tanggal Berobat</th>
                                                         <th>Biaya Pengobatan</th>
-                                                        <th>Obat</th>
+                                                        <th>Jumlah Obat</th>
+                                                        <th>Nama Obat</th>
                                                         <th>Total Biaya</th>
                                                         <th>Status</th>
                                                         <th>Aksi</th>
@@ -86,7 +87,7 @@
                                                 <tbody>
                                                     <?php
 
-                                                    $sql = mysqli_query($conn, "SELECT q.*,t.name as wname FROM riwayat_penyakit q INNER JOIN table_the_iot_mqtt t ON t.id = q.id_pasien WHERE q.tgl='$tgl' ORDER BY q.id DESC");
+                                                    $sql = mysqli_query($conn, "SELECT q.*,t.name as wname FROM riwayat_penyakit q INNER JOIN table_the_iot_projects t ON t.id = q.id_pasien WHERE q.tgl='$tgl' ORDER BY q.id DESC");
                                                     $i = 0;
                                                     while ($row = mysqli_fetch_array($sql)) {
                                                         $idpenyakit = $row['id'];
@@ -129,6 +130,27 @@
                                                                     }
                                                                 }
                                                                 ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php
+                                                                $obat2an = mysqli_query($conn, "SELECT * FROM riwayat_obat WHERE id_penyakit='$idpenyakit'  ORDER BY id DESC");
+                                                                $jumobat = mysqli_num_rows($obat2an);
+                                                                if ($jumobat == 0) {
+                                                                    echo "Tidak ada obat yang diberikan";
+                                                                } else {
+                                                                    $count = 0;
+                                                                    while ($showobat = mysqli_fetch_array($obat2an)) {
+                                                                        $idobat = $showobat['id_obat'];
+                                                                        $obatlagi = mysqli_query($conn, "SELECT * FROM obat WHERE id='$idobat'");
+                                                                        $namaobat = mysqli_fetch_array($obatlagi);
+                                                                        echo $str = ucwords($namaobat['nama_obat']);
+                                                                        $count = $count + 1;
+
+                                                                        if ($count < $jumobat) {
+                                                                            echo ", ";
+                                                                        }
+                                                                    }
+                                                                } ?>
                                                             </td>
                                                             <td>
                                                                 <?php

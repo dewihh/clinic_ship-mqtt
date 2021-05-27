@@ -38,16 +38,16 @@ file_put_contents('UIDContainer.php', $Write);
 						<a class="overlay" href="registration.php"><span class="texts">Registration</span></a>
 					</li>
 					<li>
-						<a class="overlay" href="read tag.php"><span class="texts">Read Tag ID</span></a>
+						<a class="overlay" href="read tag.php"><span class="texts">Read Card</span></a>
 					</li>
 					<li>
-						<a class="overlay" href="antrian/index.php?page=queue_registration"><span class="texts">Service</span></a>
+						<a class="overlay" href="antrian/index.php?page=queue_registration"><span class="texts">Antrian</span></a>
 					</li>
 				</ul>
 			</div>
 		</div>
 		<div class="homepages__main">
-			<h1>Puskesmas Teknologi Rekayasa Internet</h1>
+			<h1>Clinic Ship</h1>
 			<div class="container">
 				<div class="container__title">
 					<h2>Pendaftaran</h2>

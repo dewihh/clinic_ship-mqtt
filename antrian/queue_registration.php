@@ -17,7 +17,7 @@
 		height: calc(100%);
 		right: 0;
 		top: 0;
-		background: gray;
+		background: #ffffffc7;
 	}
 
 	.slideShow {
@@ -45,10 +45,15 @@
 		z-index: 99999;
 		position: fixed;
 		left: 1rem;
+		background-color: #3f859b;
+	}
+
+	.bg-save {
+		background-color: #3f859b;
 	}
 </style>
 <?php include "admin/db_connect.php" ?>
-<a href="../home.php" class="btn btn-sm btn-success"><i class="fa fa-home"></i> Home</a>
+<a href="../home.php" class="btn btn-sm btn-success"><i class="fa fa-home"></i>Kembali</a>
 <div class="left-side">
 	<div class="col-md-10 offset-md-1">
 		<div class="card">
@@ -73,7 +78,7 @@
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<button class="btn btn-sm btn-primary col-md-3 float-right">Save</button>
+								<button class="btn btn-sm btn-primary col-md-3 float-right bg-save">Save</button>
 							</div>
 						</div>
 					</form>
